@@ -20,7 +20,12 @@
                 <p class="price">@skipass.Price грн</p>
                 <p>Тривалість: @skipass.Duration</p>
                 <div class="admin-actions">
-                    <button class="btn">Купити</button>
+                    <form asp-controller="Home" asp-action="Buy" method="post">
+                        <input type="hidden" name="ResortName" value="@skipass.ResortName" />
+                        <input type="hidden" name="Price" value="@skipass.Price" />
+                        <input type="hidden" name="Duration" value="@skipass.Duration" />
+                        <button type="submit" class="btn">Купити</button>
+                    </form>
                 </div>
             </div>
         }

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Ваше повідомлення";
+}
+
+<div class="container">
+    <header>
+        <h1>Дякуємо за звернення!</h1>
+        <p class="par">Ми отримали ваше повідомлення і зв’яжемося з вами найближчим часом.</p>
+    </header>
+
+    <section class="categories">
+        <div class="category-card">
+            <h3>Ваші дані</h3>
+            <p><strong>Ім’я:</strong> @ViewBag.Name</p>
+            <p><strong>Email:</strong> @ViewBag.Email</p>
+            <p><strong>Повідомлення:</strong></p>
+            <p class="user-message">@ViewBag.Message</p>
+        </div>
+    </section>
+</div>
+
+@section Footer {
+    <p>© 2026 SkiPass Service — контакти: support@skipass.com</p>
+}

@@ -1,6 +1,7 @@
-﻿using SkipassRessort.Model;
+﻿using Microsoft.AspNetCore.Mvc;
+using SkipassRessort.Model;
 using SkipassRessort.ViewModel;
-using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace SkipassRessort.Controllers
 {
@@ -77,21 +78,79 @@ namespace SkipassRessort.Controllers
             };
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var model = GetSkipassList();
             return View(model);
         }
 
+        [HttpPost]
+        public IActionResult Index(string ResortName, decimal Price, string Duration)
+        {
+            TempData["ResortName"] = ResortName;
+            TempData["Price"] = Price.ToString(CultureInfo.InvariantCulture);
+            TempData["Duration"] = Duration;
+            return RedirectToAction("Buy");
+        }
+
+        [HttpGet]
         public IActionResult About()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult About(string name, string email, string message)
+        {
+            // например, перенаправляем на Message
+            return RedirectToAction("Message", new { name, email, message });
+        }
+
+        [HttpGet]
         public IActionResult Skipass()
         {
             var model = GetSkipassList();
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Skipass (string ResortName, decimal Price, string Duration)
+        {
+            TempData["ResortName"] = ResortName;
+            TempData["Price"] = Price.ToString(CultureInfo.InvariantCulture);
+            TempData["Duration"] = Duration;
+            return RedirectToAction("Buy");
+        }
+
+        [HttpGet]
+        public IActionResult Buy()
+        {
+            ViewBag.ResortName = TempData["ResortName"];
+            ViewBag.Price = decimal.Parse((string)TempData["Price"], CultureInfo.InvariantCulture);
+            ViewBag.Duration = TempData["Duration"];
+            return View();
+        }
+
+
+        //[HttpPost]
+        //public IActionResult Buy(string ResortName, decimal Price, string Duration)
+        //{
+        //    ViewBag.ResortName = ResortName;
+        //    ViewBag.Price = Price;
+        //    ViewBag.Duration = Duration;
+
+        //    return View();
+        //}
+
+
+        [HttpGet]
+        public IActionResult Message(string name, string email, string message)
+        {
+            ViewBag.Name = name;
+            ViewBag.Email = email;
+            ViewBag.Message = message;
+            return View();
         }
     }
 }
