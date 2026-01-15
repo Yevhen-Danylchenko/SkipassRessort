@@ -1,0 +1,32 @@
+﻿@model List<SkipassRessort.ViewModel.SkipassViewModel>
+
+@{
+    ViewBag.Title = "Продаж скіпасів";
+}
+
+<div class="container">
+    <header>
+        <h1>Онлайн продаж скіпасів</h1>
+        <p class="par">Обирай курорт та купуй квитки без черг!</p>
+    </header>
+
+    <section class="categories">
+        @foreach (var skipass in Model)
+        {
+            <div class="category-card">
+                <img src="@skipass.ImageUrl" alt="@skipass.ResortName" />
+                <h3>@skipass.ResortName</h3>
+                <p>@skipass.Description</p>
+                <p class="price">@skipass.Price грн</p>
+                <p>Тривалість: @skipass.Duration</p>
+                <div class="admin-actions">
+                    <button class="btn">Купити</button>
+                </div>
+            </div>
+        }
+    </section>
+</div>
+
+@section Footer {
+    <p>© 2026 SkiPass Service — контакти: support@skipass.com</p>
+}

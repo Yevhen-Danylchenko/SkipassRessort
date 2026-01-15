@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Про наш сервіс";
+}
+
+<div class="container">
+    <header>
+        <h1>Про SkiPass Service</h1>
+        <p class="par">Обирай курорт та купуй квитки без черг!</p>
+    </header>
+
+    <section class="categories">
+        <div class="category-card">
+            <img src="/images/6.jpg" alt="Гірськолижний курорт" />
+            <h3>Хто ми?</h3>
+            <p>
+                SkiPass Service — це онлайн‑платформа для швидкого та зручного придбання скіпасів
+                на найкращі гірськолижні курорти України та Європи.
+            </p>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/7.jpg" alt="Скіпас" />
+            <h3>Що ми пропонуємо?</h3>
+            <p>
+                Ми надаємо різні пакети: від одноденних квитків до сезонних абонементів.
+                Усі скіпаси доступні онлайн, без черг і паперових квитків.
+            </p>
+        </div>
+
+        <div class="category-card">
+            <img src="/images/8.jpg" alt="Команда" />
+            <h3>Наша місія</h3>
+            <p>
+                Ми прагнемо зробити катання на лижах та сноуборді доступним кожному —
+                завдяки прозорим цінам, зручному сервісу та сучасним технологіям.
+            </p>
+        </div>
+    </section>
+
+    <section class="form-container">
+        <h2>Зв’яжіться з нами</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Ваше ім’я</label>
+                <input type="text" id="name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="email">Електронна пошта</label>
+                <input type="email" id="email" name="email" />
+            </div>
+            <div class="form-group">
+                <label for="message">Повідомлення</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn">Надіслати</button>
+        </form>
+    </section>
+</div>
+
+@section Footer {
+    <p>© 2026 SkiPass Service — контакти: support@skipass.com</p>
+}
